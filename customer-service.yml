@@ -1,0 +1,35 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: customer-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce_product_db
+    username: root
+    password: Harsha17@
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      
+jwt:
+  secret: mysupersecuresecretkeymysupersecuresecretkey
+  expiration: 3600000
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
